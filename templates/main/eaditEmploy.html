@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block title %}Employs Deteals{% endblock title %}
+{% block css %}
+.jumbotron {
+padding: 0rem 2rem;
+}
+{% endblock css %}
+
+{% block body %}
+
+<div class="container my-3">
+    <div class="jumbotron">
+        <center>
+            <h1 class="display-4"> Eadit Details if <b><i>{{employ.name}}</i></b> </i></b></h1>
+        </center>
+        <center> <a class="btn btn-primary btn-lg my-4" href="http://127.0.0.1:8000/" role="button">back to Dashbord</a>
+        </center>
+    </div>
+</div>
+
+<div class="container">
+<form action="http://127.0.0.1:8000/employsUpdate/{{employ.name}}" method="post">
+    {% csrf_token %}
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">name</th>
+                <th scope="col">Employs Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Name</th>
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="text" value="{{employ.name}}" name="name" class="form-control" aria-label="Default"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <th scope="row">Phone Number</th>
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="text" value="{{employ.phone}}" name="phone" class="form-control" aria-label="Default"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <th scope="row">Email</th>
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="text" value="{{employ.email}}" name="email" class="form-control" aria-label="Default"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </td>
+            </tr>
+
+            </tr>
+            <tr>
+                <th scope="row">Address</th>
+                <td>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="text" value="{{employ.address}}" name="address" class="form-control" aria-label="Default"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <th scope="row">Joining Date</th>
+                <td> <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" value="{{employ.date}}" name="date" class="form-control" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default">
+                </div></td>
+            </tr>
+            <tr>
+                <th scope="row">Sells</th>
+                <td> <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" value="{{employ.sells}}" name="sells" class="form-control" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default">
+                </div></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <button class="btn btn-primary m-4 float-right" role="submit">Update Details</button>
+</form>
+</div>
+
+
+{% endblock body %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Employs Deteals{% endblock title %}
+{% block css %}
+.jumbotron {
+padding: 0rem 2rem;
+}
+{% endblock css %}
+
+{% block body %}
+
+<div class="container my-3">
+    <div class="jumbotron">
+        <center>
+            <h1 class="display-4"> Details of <b> <i> {{employ.name}}</i></b></h1>
+        </center>
+        <center> <a class="btn btn-primary btn-lg my-4" href="http://127.0.0.1:8000/" role="button">back to Dashbord</a>
+        </center>
+    </div>
+</div>
+
+<div class="container">
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">name</th>
+                <th scope="col">Employs Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Name</th>
+                <td>{{employ.name}}</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Phone Number</th>
+                <td>{{employ.phone}}</td>
+
+            </tr>
+            <tr>
+                <th scope="row">Email</th>
+                <td>{{employ.email}}</td>
+            </tr>
+
+            </tr>
+            <tr>
+                <th scope="row">Address</th>
+                <td>{{employ.address}}</td>
+            </tr>
+
+
+            <tr>
+                <th scope="row">Joining Date</th>
+                <td>{{employ.date}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Sells</th>
+                <td>{{employ.sells}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+
+{% endblock body %}
