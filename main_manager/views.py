@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from main_manager.models import Employe, ChildEmploye
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_protect
 
 
 
@@ -17,13 +18,13 @@ def employs(request, employ_sno):
     params = {'employ':employ}
     return render(request, 'main/employe_details.html', params)
 
-
+@csrf_protect
 def Eaditemploys(request, employ_name):  
     employ = Employe.objects.get(name=employ_name)
     params = {'employ':employ}
     return render(request, 'main/eaditEmploy.html', params)
 
-
+@csrf_protect
 def UpdateEmploys(request, employ_name):
 
     if request.method == "POST":          
@@ -47,7 +48,7 @@ def UpdateEmploys(request, employ_name):
 
     return redirect('/')
 
-
+@csrf_protect
 def AddEmploys(request):
 
     if request.method == "POST":

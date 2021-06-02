@@ -19,7 +19,8 @@ padding: 0rem 2rem;
 </div>
 
 <div class="container">
-<form action="http://127.0.0.1:8000/employsUpdate/{{employ.name}}" method="post">
+{% csrf_token %}
+<form action="http://127.0.0.1:8000/employsUpdate/{{employ.name}}" method="post">{% csrf_token %}
     {% csrf_token %}
     <table class="table table-striped">
         <thead class="thead-dark">
@@ -51,7 +52,7 @@ padding: 0rem 2rem;
                             aria-describedby="inputGroup-sizing-default">
                     </div>
                 </td>
-
+{% csrf_token %}
             </tr>
             <tr>
                 <th scope="row">Email</th>
