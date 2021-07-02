@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from main_manager.models import Employe, ChildEmploye
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
+from django.core.paginator import Paginator
 
 
 
@@ -9,7 +10,12 @@ from django.views.decorators.csrf import csrf_protect
 
 def home(request):
     employs = Employe.objects.all().order_by('timeStamp')
-    params = {'employs':employs,'user': request.user}
+
+    paginator = Paginator(employs, 3) #Show 3 employe par 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    params = {'employs':page_obj,'user': request.user}
     return render(request, 'main/index.html', params)
 
 
