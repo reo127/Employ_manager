@@ -10,12 +10,13 @@ from django.core.paginator import Paginator
 
 def home(request):
     employs = Employe.objects.all().order_by('timeStamp')
+    employsCount = Employe.objects.all().count()
 
     paginator = Paginator(employs, 3) #Show 3 employe par 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    params = {'employs':page_obj,'user': request.user}
+    params = {'employs':page_obj,'user': request.user, 'employe_count': employsCount}
     return render(request, 'main/index.html', params)
 
 
