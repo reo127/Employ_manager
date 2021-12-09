@@ -3,6 +3,8 @@
 
 This tool manages employees information in one place
 
+![interface](./screenshots/Interface.PNG)
+
 ## Features
 * Add new employee 
 * View employees information
